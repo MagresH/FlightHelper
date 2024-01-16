@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.biometric.BiometricManager
+import androidx.biometric.BiometricManager.Authenticators
 import androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
@@ -86,27 +87,32 @@ class MainActivity : AppCompatActivity() {
 
         btn.setOnClickListener() {
             //make nice animation
-            planeImageView.startAnimation(translateAnimation)
-            translateAnimation.setAnimationListener(object : Animation.AnimationListener {
+            //planeImageView.startAnimation(translateAnimation)
+
+
+            val newTranslateAnimation = TranslateAnimation(
+                landX, screenWidth*2 ,
+                landY, -screenHeight*2
+            )
+
+            newTranslateAnimation.duration = 1000 // Czas trwania animacji w milisekundach
+            translateAnimation.fillAfter = true
+            planeImageView.startAnimation(newTranslateAnimation)
+            newTranslateAnimation.setAnimationListener(object : Animation.AnimationListener {
                 override fun onAnimationStart(animation: Animation?) {
                 }
 
                 override fun onAnimationEnd(animation: Animation?) {
-                    biometricPrompt.authenticate(
-                        BiometricPrompt.PromptInfo.Builder()
-                            .setTitle("Login with your default security method")
-                            .setAllowedAuthenticators(DEVICE_CREDENTIAL)
-                            .build()
-                    )
+                    biometricPrompt.authenticate(promptInfo)
+
                 }
 
                 override fun onAnimationRepeat(animation: Animation?) {
+                    planeImageView.startAnimation(translateAnimation)
+
                 }
 
             })
-                biometricPrompt.authenticate(promptInfo)
-
-
 
         }
 
