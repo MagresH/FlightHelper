@@ -3,4 +3,6 @@
     <string name="title_activity_main2">MainActivity2</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="title_activity_main3">MainActivity3</string>
+    <string name="title_activity_flight_details">FlightDetailsActivity</string>
+    <string name="title_activity_flight_list">FlightListActivity</string>
 </resources>

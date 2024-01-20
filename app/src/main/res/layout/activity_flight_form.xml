@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewFrom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="From"
+        android:textSize="18sp" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextViewFrom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewFrom"
+        android:layout_marginTop="8dp"
+        android:hint="Select Departure City" />
+
+    <TextView
+        android:id="@+id/textViewTo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="To"
+        android:textSize="18sp"
+        android:layout_below="@id/autoCompleteTextViewFrom"
+        android:layout_marginTop="16dp" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextViewTo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTo"
+        android:layout_marginTop="8dp"
+        android:hint="Select Destination City" />
+
+    <TextView
+        android:id="@+id/textViewDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textSize="18sp"
+        android:layout_below="@id/autoCompleteTextViewTo"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewDate"
+        android:layout_marginTop="8dp"
+        android:hint="Select Date"
+        android:inputType="none"
+        android:focusable="false"
+        android:onClick="showDatePickerDialog"/>
+
+    <TextView
+        android:id="@+id/textViewTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Time"
+        android:textSize="18sp"
+        android:layout_below="@id/editTextDate"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/editTextTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTime"
+        android:layout_marginTop="8dp"
+        android:hint="Select Time"
+        android:inputType="none"
+        android:focusable="false"
+        android:onClick="showTimePickerDialog"/>
+
+    <ImageView
+        android:id="@+id/imageViewBoardingPass"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/editTextTime"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        />
+
+    <Button
+        android:id="@+id/btnPickImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageViewBoardingPass"
+        android:layout_marginTop="18dp"
+        android:text="Pick Image" />
+
+    <Button
+        android:id="@+id/btnAddUpdateFlight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add/Update Flight"
+        android:layout_below="@id/btnPickImage"
+        android:layout_marginTop="16dp" />
+
+</RelativeLayout>

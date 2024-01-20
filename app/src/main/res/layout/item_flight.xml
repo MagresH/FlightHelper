@@ -5,7 +5,7 @@
     android:layout_height="80dp">
 
     <soup.neumorphism.NeumorphTextView
-        android:id="@+id/textview"
+        android:id="@+id/textview123123"
         style="@style/Widget.Neumorph.TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

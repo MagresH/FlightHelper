@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CardSampleActivity">
+    >
 
     <soup.neumorphism.NeumorphCardView
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview">
+        app:layout_constraintStart_toStartOf="parent"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -22,7 +21,7 @@
                 android:id="@+id/image"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:src="@drawable/gradation"
+                app:srcCompat="@drawable/gradation"
                 app:layout_constraintDimensionRatio="H,3:2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -67,6 +66,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </soup.neumorphism.NeumorphCardView>
+    </FrameLayout>
 
-</FrameLayout>

@@ -8,4 +8,4 @@
     android:orientation="vertical"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     tools:itemCount="20"
-    tools:listitem="@layout/item_card" />
+    tools:listitem="@layout/item_flight" />

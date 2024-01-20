@@ -2,38 +2,48 @@ package com.example.myapplication
 
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Color
 import android.hardware.camera2.CameraManager
-import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.Firebase
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.database
 import soup.neumorphism.NeumorphCardView
-import soup.neumorphism.NeumorphFloatingActionButton
 import soup.neumorphism.NeumorphImageButton
 
 
 class MainActivity2 : AppCompatActivity() {
     private var vibrator: Vibrator? = null
+    private lateinit var database: FirebaseDatabase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
         setContentView(R.layout.activity_main2)
+        val flightDetailsButton = findViewById<NeumorphImageButton>(R.id.flightDetailsButton)
+
         val airplaneModeToggleButton = findViewById<NeumorphImageButton>(R.id.airplaneToggleButton)
         val flashLightToggleButton = findViewById<NeumorphImageButton>(R.id.airplaneToggleButton2)
         val mainCardView = findViewById<NeumorphCardView>(R.id.card00)
         val wifiToggleButton = findViewById<NeumorphImageButton>(R.id.wifiToggleButton)
         var flashOn = false
 
+        database = Firebase.database
 
         updateAirplaneModeToggleButton()
         updateWifiToggleButton()
         updateFlashLightToggleButton()
+
+        flightDetailsButton.setOnClickListener() {
+            val intent = Intent(applicationContext, FlightListActivity::class.java)
+            startActivity(intent)
+        }
 
         airplaneModeToggleButton.setOnClickListener() {
             vibrate()
@@ -52,6 +62,7 @@ class MainActivity2 : AppCompatActivity() {
 
 
         flashLightToggleButton.setOnClickListener {
+//            startFlight()
                 vibrate()
                 if (flashOn) {
                     flashLightOff()
@@ -82,7 +93,18 @@ class MainActivity2 : AppCompatActivity() {
         }
 
     }
-
+//    private fun startFlight() {
+//        // Przykładowe dane lotu
+//        val flight = com.example.myapplication.Flight(
+//            from = "Warsaw",
+//            to = "New York",
+//            departureTime = "2021-01-01 12:00",
+//            boardingPassImageUrl = "https://example.com/boarding-pass.jpg"
+//        )
+//        val flightId = database.getReference("flights").push().key
+//        // Zapisz dane lotu w Firebase Database pod unikalnym identyfikatorem
+//        database.getReference("flights").child(flightId ?: "").setValue(flight)
+//    }
     private fun updateFlashLightToggleButton() {
         val flashLightToggleButton = findViewById<NeumorphImageButton>(R.id.airplaneToggleButton2)
         if (isAirplaneModeOn()) {

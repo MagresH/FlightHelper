@@ -17,13 +17,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/card6"
         app:layout_constraintVertical_bias="0.971">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center_vertical">
+            android:layout_gravity="center_vertical"
+            tools:layout_editor_absoluteX="22dp"
+            tools:layout_editor_absoluteY="12dp">
 
             <soup.neumorphism.NeumorphImageButton
                 android:id="@+id/airplaneToggleButton2"
@@ -77,28 +79,64 @@
     </soup.neumorphism.NeumorphCardView>
 
     <soup.neumorphism.NeumorphCardView
-        android:id="@+id/card4"
-        android:layout_width="407dp"
-        android:layout_height="419dp"
+        android:id="@+id/card6"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
         android:background="@color/white"
         android:paddingStart="22dp"
         android:paddingBottom="11dp"
+
         app:layout_constraintBottom_toTopOf="@+id/card5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card00"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/card8"
+        app:neumorph_backgroundColor="@color/white">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="357dp"
-            android:layout_height="400dp" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <soup.neumorphism.NeumorphTextView
+                android:id="@+id/textview4"
+                style="@style/Widget.Neumorph.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+
+                android:text="Check location"
+                android:textAlignment="center"
+                android:textColor="#00DBFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.074"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.492"
+                app:neumorph_shadowColorDark="#00AFCC"
+                app:neumorph_shadowColorLight="#DFFAFF" />
+
+            <soup.neumorphism.NeumorphImageButton
+                android:id="@+id/locationButton"
+                style="@style/Widget.Neumorph.ImageButton"
+                android:layout_width="166dp"
+                android:layout_height="79dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/compass_svgrepo_com"
+                android:text="Button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.384"
+                app:layout_constraintStart_toEndOf="@+id/textview4"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </soup.neumorphism.NeumorphCardView>
 
     <soup.neumorphism.NeumorphCardView
-        app:neumorph_backgroundColor="#EEFFFFFF"
         android:id="@+id/card00"
         android:layout_width="match_parent"
         android:layout_height="153dp"
@@ -108,7 +146,8 @@
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.031">
+        app:layout_constraintVertical_bias="0.031"
+        app:neumorph_backgroundColor="#FFFFFF">
 
         <soup.neumorphism.NeumorphTextView
             android:id="@+id/textview2"
@@ -126,6 +165,61 @@
             app:neumorph_shadowColorDark="#00AFCC"
             app:neumorph_shadowColorLight="#DFFAFF" />
         <!--            app:neumorph_shadowElevation="2dp"-->
+    </soup.neumorphism.NeumorphCardView>
+
+    <soup.neumorphism.NeumorphCardView
+        android:id="@+id/card8"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:background="@color/white"
+        android:paddingStart="22dp"
+        android:paddingBottom="11dp"
+        app:layout_constraintBottom_toTopOf="@+id/card6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card00"
+        app:neumorph_backgroundColor="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="103dp">
+
+            <soup.neumorphism.NeumorphTextView
+                android:id="@+id/textview3"
+                style="@style/Widget.Neumorph.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+
+                android:text="Your flights"
+                android:textAlignment="center"
+                android:textColor="#00DBFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.069"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:neumorph_shadowColorDark="#00AFCC"
+                app:neumorph_shadowColorLight="#DFFAFF" />
+
+            <soup.neumorphism.NeumorphImageButton
+                android:id="@+id/flightDetailsButton"
+                style="@style/Widget.Neumorph.ImageButton"
+                android:layout_width="194dp"
+                android:layout_height="79dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/airport_svgrepo_com"
+                android:text="Button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textview3"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </soup.neumorphism.NeumorphCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
