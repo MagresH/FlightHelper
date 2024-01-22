@@ -23,13 +23,11 @@ class FlightListActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         addFlightButton = findViewById(R.id.addFlightBtn)
 
-        // Ustawienia dla FirebaseRecyclerAdapter
         val query = FirebaseDatabase.getInstance().reference.child("flights")
         val options = FirebaseRecyclerOptions.Builder<Flight>()
             .setQuery(query, Flight::class.java)
             .build()
 
-        // Inicjalizacja adaptera
         firebaseAdapter = FirebaseFlightAdapter(options) { clickedFlight ->
             val intent = FlightDetailsActivity.newIntent(this, clickedFlight.id)
             startActivity(intent)
@@ -38,7 +36,6 @@ class FlightListActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, FlightForm::class.java)
             startActivity(intent)
         }
-        // Przypisanie adaptera do RecyclerView
         recyclerView.adapter = firebaseAdapter
 
     }

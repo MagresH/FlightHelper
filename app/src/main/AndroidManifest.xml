@@ -29,8 +29,10 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="s">
         <activity
-            android:name=".MainActivity4"
-            android:exported="false" />
+            android:name=".FullScreenImageActivity"
+            android:exported="false"
+            android:label="@string/title_activity_full_screen_image"
+            android:theme="@style/Theme.MyApplication" />
         <activity
             android:name=".FlightDetailsActivity"
             android:exported="false"
@@ -58,12 +60,12 @@
             android:exported="false"
             android:label="@string/title_activity_maps" /> <!-- MainActivity2 -->
         <activity
-            android:name=".MainActivity2"
+            android:name=".MainActivity"
             android:exported="false"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.MyApplication" /> <!-- MainActivity -->
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="false"
             android:label="@string/app_name"
             android:theme="@style/Theme.MyApplication" />

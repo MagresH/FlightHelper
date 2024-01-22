@@ -1,45 +1,142 @@
 <!-- activity_flight_details.xml -->
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/fade_gradient"
+
     android:layout_height="match_parent"
     android:padding="16dp">
+    <soup.neumorphism.NeumorphCardView
+        app:neumorph_backgroundColor="@color/white"
+        android:layout_width="393dp"
+        android:layout_height="634dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textViewFromTo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textViewDateTime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_below="@id/textViewFromTo"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"/>
 
-    <ImageView
-        android:id="@+id/imageViewDetail"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@id/textViewDateTime"
-        android:layout_marginTop="16dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_foreground"
-        android:layout_marginBottom="16dp"/>
+            <soup.neumorphism.NeumorphButton
+                android:id="@+id/btnDeleteFlight"
+                android:layout_width="220dp"
+                android:layout_height="76dp"
+                android:layout_gravity="end|bottom"
+                android:gravity="center"
+                android:textColor="#636060"
+                android:textSize="14dp"
+                android:onClick="onMyLocationButtonClick"
+                android:text="DELETE FLIGHT"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.953" />
 
-    <Button
-        android:id="@+id/btnDeleteFlight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delete Flight"
-        android:layout_below="@id/imageViewDetail"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"/>
 
-</RelativeLayout>
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/card12"
+                android:layout_width="360dp"
+                android:layout_height="82dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.545"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.03">
+
+                <TextView
+                    android:id="@+id/textViewFromTo"
+                    android:layout_width="360dp"
+                    android:layout_height="59dp"
+                    android:gravity="center"
+                    android:text="test"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.444"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.047" />
+            </soup.neumorphism.NeumorphCardView>
+
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/card10"
+                android:layout_width="360dp"
+                android:layout_height="107dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.284">
+
+                <TextView
+                    android:id="@+id/textViewDateTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/textViewFromTo"
+                    android:gravity="center"
+                    android:text="test"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.205" />
+
+            </soup.neumorphism.NeumorphCardView>
+
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/card17"
+                android:layout_width="match_parent"
+                android:layout_height="215dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.665">
+
+                <ImageView
+                    android:id="@+id/imageViewDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_below="@id/textViewDateTime"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_foreground"
+                    app:layout_constraintBottom_toTopOf="@+id/btnDeleteFlight"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.491"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewDateTime" />
+
+                <TextView
+                    android:background="#BCFFFFFF"
+                    android:layout_width="match_parent"
+                    android:layout_height="31dp"
+                    android:translationZ="2dp"
+                    android:gravity="center"
+                    android:text="Boarding pass"
+                    android:textSize="20sp">
+
+
+                </TextView>
+
+            </soup.neumorphism.NeumorphCardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </soup.neumorphism.NeumorphCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

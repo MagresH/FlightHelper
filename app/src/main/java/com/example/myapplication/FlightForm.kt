@@ -36,7 +36,6 @@ class FlightForm : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flight_form)
         database = FirebaseDatabase.getInstance()
-        // Inicjalizacja widoków
         autoCompleteTextViewFrom = findViewById(R.id.autoCompleteTextViewFrom)
         autoCompleteTextViewTo = findViewById(R.id.autoCompleteTextViewTo)
         editTextDate = findViewById(R.id.editTextDate)
@@ -66,7 +65,6 @@ class FlightForm : AppCompatActivity() {
             var imageFileName = ""
             val storageReference = FirebaseStorage.getInstance().reference
 
-            //if fields are empty show error toast
             if (from.isEmpty() || to.isEmpty() || date.isEmpty() || time.isEmpty()) {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -89,11 +87,9 @@ class FlightForm : AppCompatActivity() {
                 selectedImageUri?.let {
                     storageReference.child("flight_images/$imageFileName").putFile(it)
                         .addOnSuccessListener {
-                            // Obsługa zapisu obrazu
                             Toast.makeText(this, "Image saved successfully", Toast.LENGTH_SHORT).show()
                         }
                         .addOnFailureListener { e ->
-                            // Obsługa błędu zapisu obrazu
                             Toast.makeText(this, "Problem with saving picture: ${e.message}", Toast.LENGTH_SHORT).show()
                         }
                 }
@@ -106,7 +102,6 @@ class FlightForm : AppCompatActivity() {
 
     }
 
-    // Metoda do pokazywania dialogu wyboru daty
     fun showDatePickerDialog() {
         val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
             calendar.set(Calendar.YEAR, year)
@@ -123,8 +118,6 @@ class FlightForm : AppCompatActivity() {
             calendar.get(Calendar.DAY_OF_MONTH)
         ).show()
     }
-
-    // Metoda do pokazywania dialogu wyboru godziny
     fun showTimePickerDialog() {
         val timeSetListener = TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
             calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
@@ -141,13 +134,11 @@ class FlightForm : AppCompatActivity() {
         ).show()
     }
 
-    // Metoda do otwierania galerii
     private fun openGallery() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         startActivityForResult(intent, PICK_IMAGE_REQUEST)
     }
 
-    // Obsługa wyniku z galerii
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.data != null) {

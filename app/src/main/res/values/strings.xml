@@ -5,4 +5,5 @@
     <string name="title_activity_main3">MainActivity3</string>
     <string name="title_activity_flight_details">FlightDetailsActivity</string>
     <string name="title_activity_flight_list">FlightListActivity</string>
+    <string name="title_activity_full_screen_image">FullScreenImageActivity</string>
 </resources>

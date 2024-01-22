@@ -14,13 +14,13 @@ class MainActivity3 : ComponentActivity() {
 
         val logowanie = findViewById<Button>(R.id.logowanie)
         logowanie.setOnClickListener {
-            val intent = Intent(applicationContext, MainActivity::class.java)
+            val intent = Intent(applicationContext, LoginActivity::class.java)
             startActivity(intent)
         }
 
         val menu = findViewById<Button>(R.id.menu)
         menu.setOnClickListener {
-            val intent = Intent(applicationContext, MainActivity2::class.java)
+            val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
         }
 
