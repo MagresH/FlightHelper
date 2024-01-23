@@ -160,7 +160,6 @@ class MainActivity : AppCompatActivity() {
 
 
         flashLightToggleButton.setOnClickListener {
-//            startFlight()
             vibrate()
             if (flashOn) {
                 flashLightOff()

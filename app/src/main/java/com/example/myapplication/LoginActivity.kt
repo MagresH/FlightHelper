@@ -1,7 +1,11 @@
 package com.example.myapplication
 
+import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.view.animation.Animation
 import android.view.animation.TranslateAnimation
 import android.widget.Button
@@ -15,10 +19,16 @@ import androidx.core.content.ContextCompat
 class LoginActivity : AppCompatActivity() {
     private lateinit var planeImageView: ImageView
     private lateinit var translateAnimation: TranslateAnimation
+    private var mediaPlayer: MediaPlayer? = null
+    private var vibrator: Vibrator? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+
         setContentView(R.layout.activity_login)
+        playSound()
         val btn = findViewById<Button>(R.id.fingerprintButton)
         val btn2 = findViewById<Button>(R.id.pinCodeButton)
         val screenWidth = resources.displayMetrics.widthPixels.toFloat()
@@ -75,11 +85,13 @@ class LoginActivity : AppCompatActivity() {
 
 
         btn.setOnClickListener() {
+            vibrate()
+
             val newTranslateAnimation = TranslateAnimation(
                 landX, screenWidth * 2, landY, -screenHeight * 2
             )
 
-            newTranslateAnimation.duration = 1000 // Czas trwania animacji w milisekundach
+            newTranslateAnimation.duration = 1000 //
             translateAnimation.fillAfter = true
             planeImageView.startAnimation(newTranslateAnimation)
             newTranslateAnimation.setAnimationListener(object : Animation.AnimationListener {
@@ -101,12 +113,13 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btn2.setOnClickListener {
+            vibrate()
 
             val newTranslateAnimation = TranslateAnimation(
                 landX, screenWidth * 2, landY, -screenHeight * 2
             )
 
-            newTranslateAnimation.duration = 1000 // Czas trwania animacji w milisekundach
+            newTranslateAnimation.duration = 1000
             translateAnimation.fillAfter = true
             planeImageView.startAnimation(newTranslateAnimation)
             newTranslateAnimation.setAnimationListener(object : Animation.AnimationListener {
@@ -133,12 +146,36 @@ class LoginActivity : AppCompatActivity() {
 
 
     }
+    private fun playSound() {
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(this, R.raw.landing)
+        }
+        mediaPlayer?.start()
+        mediaPlayer?.setOnCompletionListener {
+            stopSound()
+        }
+    }
 
+    private fun stopSound() {
+        mediaPlayer?.stop()
+        mediaPlayer?.release()
+        mediaPlayer = null
+    }
     override fun onResume() {
+        playSound()
         super.onResume()
-        // Uruchom animację ponownie po powrocie do aktywności
         planeImageView.startAnimation(translateAnimation)
 
     }
-
+    override fun onPause() {
+        stopSound()
+        super.onPause()
+    }
+    private fun vibrate() {
+        vibrator?.vibrate(VibrationEffect.createOneShot(15, VibrationEffect.DEFAULT_AMPLITUDE))
+    }
+    override fun onDestroy() {
+        stopSound()
+        super.onDestroy()
+    }
 }

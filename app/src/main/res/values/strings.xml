@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Flight Helper</string>
     <string name="title_activity_main2">MainActivity2</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="title_activity_main3">MainActivity3</string>
